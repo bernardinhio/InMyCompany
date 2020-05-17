@@ -60,6 +60,7 @@ class ResultActivity : AppCompatActivity() {
     private fun populateRecyclerView(backendData: List<BackendDataModel>) {
         backendData.forEach { backendItemData ->
             dataRecyclerViewMainInfo.add(
+                
                     MainInfoItemDataModel(
                             backendItemData.name.orEmpty(),
                             backendItemData.department.orEmpty(),

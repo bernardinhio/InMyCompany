@@ -9,5 +9,5 @@ class MainInfoItemDataModel(
     var id : String = "",
     var factTitle : String = "",
     var factText : String = "",
-    var factImageList: List<String> = listOf()
+    var factImageList: List<String> = listOf<String>()
 )

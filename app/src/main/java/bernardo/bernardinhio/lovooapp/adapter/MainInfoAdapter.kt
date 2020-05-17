@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import bernardo.bernardinhio.lovooapp.R
@@ -40,22 +41,30 @@ class MainInfoAdapter(
         }
 
         if (itemData.factImageList.isNotEmpty()){
+            viewHolder.recyclerViewImages.visibility = View.VISIBLE
+            viewHolder.textViewFactTitle.visibility = View.VISIBLE
+            viewHolder.textViewFactText.visibility = View.VISIBLE
             populateRecyclerViewImages(
                 viewHolder.recyclerViewImages, itemData.factImageList
             )
+        } else {
+            viewHolder.recyclerViewImages.visibility = View.GONE
+            viewHolder.textViewFactTitle.visibility = View.GONE
+            viewHolder.textViewFactText.visibility = View.GONE
         }
+
     }
 
     private fun matchDepartmentColor(department: String): Drawable? {
         return when(department){
-            "all" -> ColorDrawable(Integer.decode("#00ccff"))
-            "support" -> ColorDrawable(Integer.decode("#00e64d"))
-            "hr" -> ColorDrawable(Integer.decode("#ffff00"))
-            "engineering" -> ColorDrawable(Integer.decode("#ffcc66"))
-            "management" -> ColorDrawable(Integer.decode("#ff0000"))
-            "marketing" -> ColorDrawable(Integer.decode("#ff66ff"))
-            "data" -> ColorDrawable(Integer.decode("#b3b3ff"))
-            else -> {ColorDrawable(Integer.decode("#000000"))}
+            "all" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_all)
+            "support" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_support)
+            "hr" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_hr)
+            "engineering" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_engineering)
+            "management" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_management)
+            "marketing" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_marketing)
+            "data" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_data)
+            else -> ContextCompat.getDrawable(context, R.drawable.background_card_department_else)
         }
     }
 

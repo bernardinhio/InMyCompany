@@ -26,13 +26,11 @@ class ImagesAdapter(
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val itemData = arrayListData.get(position)
 
-        val gfgfg = (viewHolder as ImageRecyclerViewViewHolder).imageViewSocialEventPhoto
-
         (viewHolder as ImageRecyclerViewViewHolder).apply {
             Glide.with(context)
                 .load(itemData.imageUrl)
                 .centerCrop()
-                .override(200) // 200 pixels for height and width
+                //.override(200) // 200 pixels for height and width
                 .into(viewHolder.imageViewSocialEventPhoto)
         }
 
