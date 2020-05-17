@@ -1,9 +1,9 @@
-package bernardo.bernardinhio.lovooapp.dataprovider
+package bernardo.bernardinhio.lovooapp.retrofit.dataprovider
 
 import android.accounts.AuthenticatorException
 import android.util.Log
-import bernardo.bernardinhio.lovooapp.model.LoginDataModel
-import bernardo.bernardinhio.lovooapp.service.RetrofitInstance
+import bernardo.bernardinhio.lovooapp.retrofit.model.BackendDataModel
+import bernardo.bernardinhio.lovooapp.retrofit.service.RetrofitInstance
 import com.google.gson.JsonSyntaxException
 import io.reactivex.subjects.ReplaySubject
 import org.json.JSONException
@@ -15,7 +15,6 @@ import java.net.ConnectException
 import java.net.HttpURLConnection
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
-import javax.security.auth.AuthPermission
 
 const val LOG_TAG = "RetrofitMessage"
 
@@ -23,25 +22,25 @@ object LoginDataProvider {
 
     const val BASE_URL_LOGIN = "https://europe-west1-lv-trialwork.cloudfunctions.net/lovooOffice/"
 
-    var appData = ReplaySubject.create<List<LoginDataModel>>()
-    var connectionStatus = ReplaySubject.create<String>()
+    var appData = ReplaySubject.create<List<BackendDataModel>>()
+    var connectionStatus = ReplaySubject.create<String>().apply { onNext(BackendStatus.REQUEST_NOT_MADE_YET.message) }
 
-    fun login(authHeader: String){
+    fun login(authHeader: String) {
 
         val loginCall = RetrofitInstance
-            .setupRetrofitCalls()
-            .getLoginCall(authHeader)
+                .setupRetrofitCalls()
+                .getLoginCall(authHeader)
 
-        loginCall.enqueue(object : Callback<List<LoginDataModel>> {
+        loginCall.enqueue(object : Callback<List<BackendDataModel>> {
 
             override fun onResponse(
-                call: Call<List<LoginDataModel>>,
-                response: Response<List<LoginDataModel>>
+                call: Call<List<BackendDataModel>>,
+                response: Response<List<BackendDataModel>>
             ) {
 
                 if (response.isSuccessful && response.code() == HttpURLConnection.HTTP_OK) {
 
-                    val body: List<LoginDataModel>? = response.body()
+                    val body: List<BackendDataModel>? = response.body()
 
                     if (body.isNullOrEmpty()) { // no data in backend
                         notifyDataProvider(listOf(), BackendStatus.SUCCESSFUL_CONNECTION_BUT_NO_DATA.message)
@@ -57,7 +56,7 @@ object LoginDataProvider {
                 }
             }
 
-            override fun onFailure(call: Call<List<LoginDataModel>>, error: Throwable) {
+            override fun onFailure(call: Call<List<BackendDataModel>>, error: Throwable) {
 
                 when (error) {
                     is SocketTimeoutException -> notifyDataProvider(listOf(), BackendStatus.ERROR_CONNECTION_TIMEOUT.message)
@@ -93,17 +92,19 @@ object LoginDataProvider {
      * Subject emit for the first time as Observable and then can later be used
      * as Observer to observer an Observable source and nitify its own observers
      */
-    private fun notifyDataProvider(responseBody: List<LoginDataModel>, connectionMessage: String) {
+    private fun notifyDataProvider(responseBody: List<BackendDataModel>, connectionMessage: String) {
         appData.onNext(responseBody)
         connectionStatus.onNext(connectionMessage)
     }
 
-    private fun notifyLoggerSuccess(body: List<LoginDataModel>) {
+    private fun notifyLoggerSuccess(body: List<BackendDataModel>) {
         body.forEach {
             Log.d(LOG_TAG, it.department.orEmpty())
             Log.d(LOG_TAG, it.id.orEmpty())
             Log.d(LOG_TAG, it.name.orEmpty())
             Log.d(LOG_TAG, it.roomNumber.orEmpty())
+            Log.d(LOG_TAG, it.officeLevel?.toString().orEmpty())
+            Log.d(LOG_TAG, it.typ.orEmpty())
             Log.d(LOG_TAG, it.type.orEmpty())
             Log.d(LOG_TAG, it.lovooFact?.title.orEmpty())
             Log.d(LOG_TAG, it.lovooFact?.text.orEmpty())
