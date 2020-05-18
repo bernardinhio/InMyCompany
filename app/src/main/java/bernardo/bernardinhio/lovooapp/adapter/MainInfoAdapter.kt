@@ -34,8 +34,8 @@ class MainInfoAdapter(
             textViewName.text = itemData.name
             container.background = matchDepartmentColor(itemData.department)
             textViewType.text = itemData.type
-            textViewRoomNumber.text = "Num: #${itemData.roomNumber}"
-            textViewOfficeLevel.text = "F: ${itemData.officeLevel}"
+            textViewRoomNumber.text = "Room: #${itemData.roomNumber}"
+            textViewOfficeLevel.text = "Floor: ${itemData.officeLevel}"
             textViewFactTitle.text = itemData.factTitle
             textViewFactText.text = itemData.factText
         }

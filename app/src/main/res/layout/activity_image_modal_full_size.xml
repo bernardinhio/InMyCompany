@@ -19,7 +19,7 @@
         android:id="@+id/buttonClose"
         android:onClick="clickOpenButton"
         android:src="@drawable/ic_close_white_24dp"
-        android:backgroundTint="#800027FF"
+        android:backgroundTint="#5E5E5E"
         android:layout_margin="16dp"
         android:layout_width="52dp"
         android:layout_height="52dp"

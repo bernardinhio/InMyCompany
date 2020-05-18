@@ -1,9 +1,15 @@
 package bernardo.bernardinhio.lovooapp.view
 
+import android.content.pm.ActivityInfo
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import bernardo.bernardinhio.lovooapp.R
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.activity_image_modal_full_size.*
 
 class ImageModalActivity : AppCompatActivity() {
@@ -13,14 +19,12 @@ class ImageModalActivity : AppCompatActivity() {
 
         buttonClose.setOnClickListener { finish() }
 
-        val intentImageUrl = intent
-        val imageUrl: String? = intentImageUrl?.getStringExtra("imageUrl")
+        val imageUrl: String? = this.intent?.getStringExtra("imageUrl")
 
         Glide.with(this)
             .load(imageUrl)
-            // when there is slow internet or any network problem or image not available anymore
-            .placeholder(R.drawable.loading_image)
             .fitCenter()
+            .placeholder(R.drawable.loading_image)
             .into(imageViewEventFullSize)
     }
 }

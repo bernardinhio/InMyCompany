@@ -61,12 +61,14 @@ class MainActivity : AppCompatActivity() {
 
         val username: String = inputUsername.text.toString()
         val password: String = inputPassword.text.toString()
-        val base: String = "$username:$password"
+        val base = "$username:$password"
         // As seen in the Postman tool to check the Http Authentication call,
         // we need to encode the username & password so the server can read
         // and can check to see if those authentication are true
         val encodedBase = Base64.encodeToString(base.toByteArray(), Base64.NO_WRAP)
-        val authHeader: String = "Basic $encodedBase"
+        val authHeader = "Basic $encodedBase"
+        // save it for next activities when Swipe to refresh for example
+        LoginDataProvider.loginAuthenticationHeader = authHeader
 
         LoginDataProvider.login(authHeader)
     }

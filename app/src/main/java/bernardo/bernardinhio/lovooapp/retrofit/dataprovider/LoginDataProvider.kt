@@ -25,6 +25,8 @@ object LoginDataProvider {
     var appData = ReplaySubject.create<List<BackendDataModel>>()
     var connectionStatus = ReplaySubject.create<String>().apply { onNext(BackendStatus.REQUEST_NOT_MADE_YET.message) }
 
+    var loginAuthenticationHeader: String = ""
+
     fun login(authHeader: String) {
 
         val loginCall = RetrofitInstance

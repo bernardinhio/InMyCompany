@@ -3,10 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewMainInfo"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeToRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#D2D2D2"/>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewMainInfo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#D2D2D2"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

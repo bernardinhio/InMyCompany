@@ -2,7 +2,10 @@ package bernardo.bernardinhio.lovooapp.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SimpleItemAnimator
 import bernardo.bernardinhio.lovooapp.R
 import bernardo.bernardinhio.lovooapp.adapter.MainInfoAdapter
 import bernardo.bernardinhio.lovooapp.datamodel.MainInfoItemDataModel
@@ -26,6 +29,7 @@ class ResultActivity : AppCompatActivity() {
         setupAdapterRecyclerViewMain()
 
         subscribeToBackendData()
+        setupSwipeRefreshLayout()
     }
 
     private fun setupRecyclerViewMain() {
@@ -77,4 +81,13 @@ class ResultActivity : AppCompatActivity() {
 
         adapterMainInfo.notifyDataSetChanged()
     }
+
+    // call retrofit and update RxJava
+    private fun setupSwipeRefreshLayout() {
+        swipeToRefresh.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent))
+        swipeToRefresh.setOnRefreshListener {
+            LoginDataProvider.login(LoginDataProvider.loginAuthenticationHeader )
+        }
+    }
+
 }

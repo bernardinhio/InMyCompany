@@ -30,7 +30,6 @@ class ImagesAdapter(
             Glide.with(context)
                 .load(itemData.imageUrl)
                 .centerCrop()
-                //.override(200) // 200 pixels for height and width
                 .into(viewHolder.imageViewSocialEventPhoto)
         }
 
