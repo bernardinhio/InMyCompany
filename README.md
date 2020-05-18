@@ -10,6 +10,10 @@ Results page
 
 ![Screenshot_1589783279](https://user-images.githubusercontent.com/20923486/82181911-b4690100-98e3-11ea-955c-aaa95bc84539.png)
 
+Swipe to refresh and update RxJava 6 Ui
+
+![Screenshot_1589784883](https://user-images.githubusercontent.com/20923486/82182923-5ccb9500-98e5-11ea-913d-0ae7ee4bd0ce.png)
+
 Inner Horizontal RecyclerView to parent RecyclerView for Image gallery using Glide Library
 
 ![Screenshot_1589784524](https://user-images.githubusercontent.com/20923486/82182339-6f919a00-98e4-11ea-824e-28e4ff4def6b.png)
