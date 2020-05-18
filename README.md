@@ -18,39 +18,35 @@ Glide Library maintains 2 level of caching:
 -> Memory Cache
 -> Disk Cache
 
-* When we provide the url to the Glide, Gilde checks if
- * the image with that url key is available in the memory
- * cache or not
- *
- * 1. If present in the memory cache:
- * THEN
- * > It just shows the bitmap by taking it from the memory cache
- *
- * 2. If not present in the memory cache:
- * THEN
- * > It checks in the disk cache
- *
- * 3. If present in the disk cache:
- * THEN
- * > It loads the bitmap from the disk
- * THEN
- * > Puts it in the memory cache
- * THEN
- * > Load bitmap in the view
- *
- * 5 If not present in the disk cache:
- * THEN
- * > It downloads the image from the network
- * THEN
- * > Puts it in the disk cache
- * THEN
- * > Puts it in the memory cache
- * THEN
- * > Load the bitmap in the view
- *
- * This way Glide Library makes loading fast because showing
- * directly from the memory cache is faster than the disk cache
- * and the disk cache is faster than loading from the network
+When we provide the url to the Glide, Gilde checks if the image with that url key is available in the memory cache or not
+
+1. If present in the memory cache:
+THEN
+> It just shows the bitmap by taking it from the memory cache
+
+2. If not present in the memory cache:
+THEN
+> It checks in the disk cache
+
+3. If present in the disk cache:
+THEN
+> It loads the bitmap from the disk
+THEN
+> Puts it in the memory cache
+THEN
+> Load bitmap in the view
+
+4 If not present in the disk cache:
+THEN
+> It downloads the image from the network
+THEN
+> Puts it in the disk cache
+THEN
+> Puts it in the memory cache
+THEN
+> Load the bitmap in the view
+
+This way Glide Library makes loading fast because showing directly from the memory cache is faster than the disk cache and the disk cache is faster than loading from the network
 
 And they work together to avoid loading the same pixels again and reuse the Pixels when needed…
 
