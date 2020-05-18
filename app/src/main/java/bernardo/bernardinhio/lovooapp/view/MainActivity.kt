@@ -33,9 +33,15 @@ class MainActivity : AppCompatActivity() {
 
             override fun onNext(connectionInfo: String) {
                 when(connectionInfo){
-                    LoginDataProvider.BackendStatus.SUCCESSFUL_CONNECTION.message -> startResultActivity()
+                    LoginDataProvider.BackendStatus.SUCCESSFUL_CONNECTION.message -> {
+                        startActivity(Intent(this@MainActivity, ResultActivity::class.java))
+                        updateUi(LoginStaus.SUCCESS)
+                    }
                     LoginDataProvider.BackendStatus.REQUEST_NOT_MADE_YET.message -> {}
-                    else -> Toast.makeText(this@MainActivity, "Connection:\n$connectionInfo", Toast.LENGTH_LONG).show()
+                    else -> {
+                        Toast.makeText(this@MainActivity, "Connection:\n$connectionInfo", Toast.LENGTH_LONG).show()
+                        updateUi(LoginStaus.FAILURE)
+                    }
                 }
             }
 
@@ -45,19 +51,29 @@ class MainActivity : AppCompatActivity() {
         LoginDataProvider.connectionStatus.subscribe(mainActivityObserver)
     }
 
-    private fun startResultActivity() {
-        startActivity(Intent(this, ResultActivity::class.java))
-        progressBarMainActivity.setVisibility(View.GONE)
-        inputUsername.isEnabled = true
-        inputPassword.isEnabled = true
-        btnConnectToApi.isEnabled = true
+    private fun updateUi(loginStaus:LoginStaus){
+        when(loginStaus){
+            LoginStaus.PENDING -> {
+                progressBarMainActivity.setVisibility(View.VISIBLE)
+                inputUsername.isEnabled = false
+                inputPassword.isEnabled = false
+                btnConnectToApi.isEnabled = false
+            }
+            else -> {
+                progressBarMainActivity.setVisibility(View.GONE)
+                inputUsername.isEnabled = true
+                inputPassword.isEnabled = true
+                btnConnectToApi.isEnabled = true
+            }
+        }
+    }
+
+    enum class LoginStaus{
+        PENDING, SUCCESS, FAILURE
     }
 
     fun connectToApi(view: View) {
-        progressBarMainActivity.setVisibility(View.VISIBLE)
-        inputUsername.isEnabled = false
-        inputPassword.isEnabled = false
-        btnConnectToApi.isEnabled = false
+        updateUi(LoginStaus.PENDING)
 
         val username: String = inputUsername.text.toString()
         val password: String = inputPassword.text.toString()
