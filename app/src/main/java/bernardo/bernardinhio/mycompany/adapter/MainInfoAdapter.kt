@@ -1,4 +1,4 @@
-package bernardo.bernardinhio.lovooapp.adapter
+package bernardo.bernardinhio.mycompany.adapter
 
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
@@ -6,14 +6,12 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import bernardo.bernardinhio.lovooapp.R
-import bernardo.bernardinhio.lovooapp.datamodel.ImageItemDataModel
-import bernardo.bernardinhio.lovooapp.datamodel.MainInfoItemDataModel
+import bernardo.bernardinhio.mycompany.R
+import bernardo.bernardinhio.mycompany.datamodel.ImageItemDataModel
+import bernardo.bernardinhio.mycompany.datamodel.MainInfoItemDataModel
 import kotlinx.android.synthetic.main.item_recyclerview_main_info.view.*
 
 class MainInfoAdapter(
@@ -32,7 +30,9 @@ class MainInfoAdapter(
 
         (viewHolder as MainInfoRecyclerViewViewHolder).apply {
             textViewName.text = itemData.name
-            container.background = matchDepartmentColor(itemData.department)
+            container.background = matchContainerBorderColorToDepartment(itemData.department)
+            textViewDepartment.text = itemData.department
+            textViewDepartment.background = matchDepartmentLableBackgroundColor(itemData.department)
             textViewType.text = itemData.type
             textViewRoomNumber.text = "Room: #${itemData.roomNumber}"
             textViewOfficeLevel.text = "Floor: ${itemData.officeLevel}"
@@ -55,7 +55,20 @@ class MainInfoAdapter(
 
     }
 
-    private fun matchDepartmentColor(department: String): Drawable? {
+    private fun matchDepartmentLableBackgroundColor(department: String): Drawable? {
+        return when(department){
+            "all" -> ColorDrawable(ContextCompat.getColor(context, R.color.department_all))
+            "support" -> ColorDrawable(ContextCompat.getColor(context, R.color.department_support))
+            "hr" -> ColorDrawable(ContextCompat.getColor(context, R.color.department_hr))
+            "engineering" -> ColorDrawable(ContextCompat.getColor(context, R.color.department_engineering))
+            "management" -> ColorDrawable(ContextCompat.getColor(context, R.color.department_management))
+            "marketing" -> ColorDrawable(ContextCompat.getColor(context, R.color.department_marketing))
+            "data" -> ColorDrawable(ContextCompat.getColor(context, R.color.department_data))
+            else -> ColorDrawable(ContextCompat.getColor(context, R.color.black))
+        }
+    }
+
+    private fun matchContainerBorderColorToDepartment(department: String): Drawable? {
         return when(department){
             "all" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_all)
             "support" -> ContextCompat.getDrawable(context, R.drawable.background_card_department_support)
@@ -93,6 +106,7 @@ class MainInfoAdapter(
         : RecyclerView.ViewHolder(itemView) {
 
         val container = itemView.containerMainInfoItem
+        val textViewDepartment = itemView.tvDepartment
         val textViewName = itemView.tvName
         val textViewType = itemView.tvType
         val textViewRoomNumber = itemView.tvRoomNumber

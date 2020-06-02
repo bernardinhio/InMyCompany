@@ -1,6 +1,6 @@
-package bernardo.bernardinhio.lovooapp.retrofit.service
+package bernardo.bernardinhio.mycompany.retrofit.service
 
-import bernardo.bernardinhio.lovooapp.retrofit.dataprovider.LoginDataProvider
+import bernardo.bernardinhio.mycompany.retrofit.dataprovider.LoginDataProvider
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

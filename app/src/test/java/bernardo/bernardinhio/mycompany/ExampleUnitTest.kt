@@ -1,4 +1,4 @@
-package bernardo.bernardinhio.lovooapp
+package bernardo.bernardinhio.mycompany
 
 import org.junit.Test
 

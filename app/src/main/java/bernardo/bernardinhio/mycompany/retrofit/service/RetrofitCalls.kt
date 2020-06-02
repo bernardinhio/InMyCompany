@@ -1,6 +1,6 @@
-package bernardo.bernardinhio.lovooapp.retrofit.service
+package bernardo.bernardinhio.mycompany.retrofit.service
 
-import bernardo.bernardinhio.lovooapp.retrofit.model.BackendDataModel
+import bernardo.bernardinhio.mycompany.retrofit.model.BackendDataModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

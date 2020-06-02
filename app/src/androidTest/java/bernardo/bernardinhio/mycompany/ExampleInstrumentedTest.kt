@@ -1,4 +1,4 @@
-package bernardo.bernardinhio.lovooapp
+package bernardo.bernardinhio.mycompany
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

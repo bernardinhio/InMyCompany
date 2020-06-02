@@ -1,4 +1,4 @@
-package bernardo.bernardinhio.lovooapp.datamodel
+package bernardo.bernardinhio.mycompany.datamodel
 
 class MainInfoItemDataModel(
     var name : String = "",

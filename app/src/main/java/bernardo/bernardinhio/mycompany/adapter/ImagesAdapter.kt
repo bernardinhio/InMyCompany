@@ -1,4 +1,4 @@
-package bernardo.bernardinhio.lovooapp.adapter
+package bernardo.bernardinhio.mycompany.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import bernardo.bernardinhio.lovooapp.R
-import bernardo.bernardinhio.lovooapp.datamodel.ImageItemDataModel
-import bernardo.bernardinhio.lovooapp.view.ImageModalActivity
+import bernardo.bernardinhio.mycompany.R
+import bernardo.bernardinhio.mycompany.datamodel.ImageItemDataModel
+import bernardo.bernardinhio.mycompany.view.ImageModalActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_recyclerview_images.view.*
 
