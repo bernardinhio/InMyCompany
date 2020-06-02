@@ -1,9 +1,9 @@
-package bernardo.bernardinhio.lovooapp.retrofit.dataprovider
+package bernardo.bernardinhio.mycompany.retrofit.dataprovider
 
 import android.accounts.AuthenticatorException
 import android.util.Log
-import bernardo.bernardinhio.lovooapp.retrofit.model.BackendDataModel
-import bernardo.bernardinhio.lovooapp.retrofit.service.RetrofitInstance
+import bernardo.bernardinhio.mycompany.retrofit.model.BackendDataModel
+import bernardo.bernardinhio.mycompany.retrofit.service.RetrofitInstance
 import com.google.gson.JsonSyntaxException
 import io.reactivex.subjects.ReplaySubject
 import org.json.JSONException
@@ -20,7 +20,7 @@ const val LOG_TAG = "RetrofitMessage"
 
 object LoginDataProvider {
 
-    const val BASE_URL_LOGIN = "https://europe-west1-lv-trialwork.cloudfunctions.net/lovooOffice/"
+    const val BASE_URL_LOGIN = "http://www.mocky.io/v2/5ed691013400003ed306db30/"
 
     var appData = ReplaySubject.create<List<BackendDataModel>>()
     var connectionStatus = ReplaySubject.create<String>().apply { onNext(BackendStatus.REQUEST_NOT_MADE_YET.message) }
@@ -84,7 +84,7 @@ object LoginDataProvider {
         ERROR_SERVER_NOT_RESPONDING("Error: Server not responding"),
         ERROR_PARSING("Error: Parse error"),
         ERROR_PARSING_SYNTAX("Error: Parse error Syntax"),
-        ERROR_OTHER("Error: throwable error"),
+        ERROR_OTHER("Error: Other throwable error"),
         ERROR_WRONG_LOGIN_CODE("Error: Wrong Login code"),
         REQUEST_NOT_ALLOWED("Request not allowed by Admin"),
         REQUEST_NOT_MADE_YET("Request not made yet")
@@ -108,9 +108,9 @@ object LoginDataProvider {
             Log.d(LOG_TAG, it.officeLevel?.toString().orEmpty())
             Log.d(LOG_TAG, it.typ.orEmpty())
             Log.d(LOG_TAG, it.type.orEmpty())
-            Log.d(LOG_TAG, it.lovooFact?.title.orEmpty())
-            Log.d(LOG_TAG, it.lovooFact?.text.orEmpty())
-            it.lovooFact?.images?.forEach {
+            Log.d(LOG_TAG, it.companyFact?.title.orEmpty())
+            Log.d(LOG_TAG, it.companyFact?.text.orEmpty())
+            it.companyFact?.images?.forEach {
                 Log.d(LOG_TAG, it)
             }
         }

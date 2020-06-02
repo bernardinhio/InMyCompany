@@ -1,4 +1,4 @@
-package bernardo.bernardinhio.lovooapp.adapter
+package bernardo.bernardinhio.mycompany.adapter
 
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import bernardo.bernardinhio.lovooapp.R
-import bernardo.bernardinhio.lovooapp.datamodel.ImageItemDataModel
-import bernardo.bernardinhio.lovooapp.datamodel.MainInfoItemDataModel
+import bernardo.bernardinhio.mycompany.R
+import bernardo.bernardinhio.mycompany.datamodel.ImageItemDataModel
+import bernardo.bernardinhio.mycompany.datamodel.MainInfoItemDataModel
 import kotlinx.android.synthetic.main.item_recyclerview_main_info.view.*
 
 class MainInfoAdapter(

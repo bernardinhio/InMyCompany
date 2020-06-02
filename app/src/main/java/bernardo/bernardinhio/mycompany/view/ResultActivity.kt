@@ -1,16 +1,14 @@
-package bernardo.bernardinhio.lovooapp.view
+package bernardo.bernardinhio.mycompany.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SimpleItemAnimator
-import bernardo.bernardinhio.lovooapp.R
-import bernardo.bernardinhio.lovooapp.adapter.MainInfoAdapter
-import bernardo.bernardinhio.lovooapp.datamodel.MainInfoItemDataModel
-import bernardo.bernardinhio.lovooapp.retrofit.dataprovider.LoginDataProvider
-import bernardo.bernardinhio.lovooapp.retrofit.model.BackendDataModel
+import bernardo.bernardinhio.mycompany.R
+import bernardo.bernardinhio.mycompany.adapter.MainInfoAdapter
+import bernardo.bernardinhio.mycompany.datamodel.MainInfoItemDataModel
+import bernardo.bernardinhio.mycompany.retrofit.dataprovider.LoginDataProvider
+import bernardo.bernardinhio.mycompany.retrofit.model.BackendDataModel
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_result.*
@@ -72,9 +70,9 @@ class ResultActivity : AppCompatActivity() {
                             backendItemData.roomNumber.orEmpty(),
                             backendItemData.officeLevel?.toString().orEmpty(),
                             backendItemData.id.orEmpty(),
-                            backendItemData.lovooFact?.title.orEmpty(),
-                            backendItemData.lovooFact?.text.orEmpty(),
-                            backendItemData.lovooFact?.images.orEmpty()
+                            backendItemData.companyFact?.title.orEmpty(),
+                            backendItemData.companyFact?.text.orEmpty(),
+                            backendItemData.companyFact?.images.orEmpty()
                     )
             )
         }

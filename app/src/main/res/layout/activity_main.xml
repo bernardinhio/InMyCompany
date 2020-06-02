@@ -12,6 +12,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/websiteName"
+            android:text="www.bernardinhio-kitkat.com"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="26dp"
+            android:textColor="#000000"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <ImageView
+            android:id="@+id/logoHomePage"
+            android:src="@drawable/my_company_logo"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/websiteName"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/companyName"
+            android:text="Kitkat, my company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="26dp"
+            android:textColor="#000000"
+            android:layout_marginStart="20dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/logoHomePage"
+            app:layout_constraintBottom_toBottomOf="@id/logoHomePage"
+            app:layout_constraintStart_toEndOf="@id/logoHomePage"/>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/titleInputUsername"
             android:layout_width="match_parent"
@@ -23,11 +63,11 @@
             android:textSize="20dp"
             android:background="@drawable/rectangle_white"
             app:layout_goneMarginBottom="15dp"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/logoHomePage">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputUsername"
-                android:text="lovooTrialUser"
+                android:text="bernardo"
                 android:hint="Username..."
                 android:inputType="text"
                 android:textColorHint="@color/black"
@@ -55,7 +95,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputPassword"
-                android:text="lovooTrialUser"
+                android:text="bernardinhio"
                 android:hint="Password..."
                 android:inputType="text"
                 android:textColorHint="@color/black"
@@ -70,7 +110,7 @@
 
         <Button
             android:id="@+id/btnConnectToApi"
-            android:text="Connect To Api"
+            android:text="See my company in picture!"
             android:onClick="connectToApi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -59,29 +59,32 @@ This way Glide Library makes loading fast because showing directly from the memo
 
 And they work together to avoid loading the same pixels again and reuse the Pixels when needed…
 
+In this project, I made small animations in the homepage. I used Retrofit to parse data after I created a mock link using ww.mocky.io to use a Basic Authentication, then I made a
+
 So some Screenshots:
 
 
-Login
+Login and company Logo animation bounce + blinking + Loggin different types of exceptions
 
-![Screenshot_1589781327](https://user-images.githubusercontent.com/20923486/82181504-f04f9680-98e2-11ea-82a8-550d2c98bcf9.png)
+![Screenshot_1591123402](https://user-images.githubusercontent.com/20923486/83557724-69b9cc80-a512-11ea-87fc-5cc38fdd9bfc.png)
 
-Loggin different types of exceptions
-
-![Screenshot_1589781338](https://user-images.githubusercontent.com/20923486/82181671-43294e00-98e3-11ea-86b5-c6d441604c0e.png)
 
 Results page
 
-![Screenshot_1589843897](https://user-images.githubusercontent.com/20923486/82268412-34887880-996f-11ea-8f3c-e8debec4e265.png)
+![Screenshot_1591123588](https://user-images.githubusercontent.com/20923486/83557949-ba312a00-a512-11ea-87ad-3fbb2512254e.png)
 
-Swipe to refresh and update RxJava 6 Ui
-
-![Screenshot_1589844216](https://user-images.githubusercontent.com/20923486/82268557-9e088700-996f-11ea-849d-d62f8f76f23c.png)
 
 Inner Horizontal RecyclerView to parent RecyclerView for Image gallery using Glide Library
 
-![Screenshot_1589844516](https://user-images.githubusercontent.com/20923486/82268767-14a58480-9970-11ea-9357-61eb50796ee7.png)
+![Screenshot_1591123651](https://user-images.githubusercontent.com/20923486/83558193-f1074000-a512-11ea-864f-09b0a460e6e5.png)
+
+
+Swipe to refresh and update RxJava 6 Ui
+
+![Screenshot_1591123875](https://user-images.githubusercontent.com/20923486/83558122-d46b0800-a512-11ea-9009-f5d2bc79ea0e.png)
+
 
 Full screen Image using Glide
 
 ![Screenshot_1589784353](https://user-images.githubusercontent.com/20923486/82182665-e6c72e00-98e4-11ea-88aa-036467e5041f.png)
+
